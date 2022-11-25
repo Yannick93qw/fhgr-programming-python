@@ -13,9 +13,7 @@ Erweitern Sie die Funktion sodass sie den Benutzer nach den Daten abfragt, also 
 """
 
 
-def strecke_in_km():
-    km = int(input("Wie viele Kilometer bist du heute gefahren? "))
-    tageszeit = input("Was ist für eine Tageszeit (Nacht/Tag)? ")
+def taxifahrt(km, tageszeit):
 
     ist_nacht = tageszeit.lower() == "nacht"
     preis = 10 if ist_nacht else 8
@@ -23,8 +21,16 @@ def strecke_in_km():
 
     preis += (km - 2) * km_preis
 
+    return preis
+
+
+def taxifahrt_ohne_parameter():
+    km = int(input("Wie viele Kilometer bist du heute gefahren? "))
+    tageszeit = input("Was ist für eine Tageszeit (Nacht/Tag)? ")
+
+    preis = taxifahrt(km, tageszeit)
     print(
         f"Preis für {km} km in der Tageszeit '{tageszeit}' ist {preis} CHF")
 
 
-strecke_in_km()
+taxifahrt_ohne_parameter()
